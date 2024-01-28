@@ -1,7 +1,7 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import iziToast from 'izitoast';
-import 'iziToast/dist/css/iziToast.min.css';
+import "iziToast/dist/css/iziToast.min.css";
 import errorIcon from '../img/bi_x-octagon.png'
 
 
