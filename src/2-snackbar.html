@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page 3</title>
+    <link rel="stylesheet" href="./css/snackbar.css" />
   </head>
   <body>
     <section>
@@ -12,12 +13,12 @@
       <h1>Welcome to page 3</h1>
     </section>
     <form class="form">
-      <label>
+      <label class="imp">
         Delay (ms)
-        <input type="number" name="delay" required />
+        <input class="delayImp" type="number" name="delay" required />
       </label>
 
-      <fieldset>
+      <fieldset class="stateImp">
         <legend>State</legend>
         <label>
           <input type="radio" name="state" value="fulfilled" required />
@@ -29,7 +30,7 @@
         </label>
       </fieldset>
 
-      <button type="submit">Create notification</button>
+      <button class="submitBtn" type="submit">Create notification</button>
     </form>
     <script type="module" src="./js/2-snackbar.js"></script>
   </body>
