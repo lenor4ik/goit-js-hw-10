@@ -1,5 +1,4 @@
 import iziToast from 'izitoast';
-import "iziToast/dist/css/iziToast.min.css";
 import successIcon from '../img/bi_check2-circle.png'
 import errorIcon from '../img/bi_x-octagon.png'
 
