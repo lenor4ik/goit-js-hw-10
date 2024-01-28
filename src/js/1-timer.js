@@ -2,6 +2,7 @@ import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 import iziToast from 'izitoast';
 import "iziToast/dist/css/iziToast.min.css";
+import errorIcon from '../img/bi_x-octagon.png'
 
 
 let userSelectedDate;
@@ -47,27 +48,34 @@ function convertMs(ms) {
   return { days, hours, minutes, seconds };
 }
 
+document.querySelector('#startButton').disabled = true;
 const options = {
   enableTime: true,
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
+  
   onClose(selectedDates) {
     const selectedDate = selectedDates[0];
     console.log(selectedDates[0]);
 
     if (selectedDate && selectedDate.getTime() > Date.now()) {
       userSelectedDate = selectedDate;
-      document.querySelector('[data-start]').disabled = false;
+      document.querySelector('#startButton').disabled = false;
+      
      
     } else {
       userSelectedDate = null;
-      document.querySelector('[data-start]').disabled = true;
+      document.querySelector('#startButton').disabled = true;
       iziToast.error({
+        title: 'Error',
+        titleColor: '#ffffff',
         message: 'Please choose a date in the future',
         position: 'topRight',
-        messageColor: 'white',
-        backgroundColor: 'red',
+        messageColor: '#ffffff',
+        backgroundColor: '#EF4040',
+        iconUrl: errorIcon,
+        iconColor: '#ffffff'
         });
       clearInterval(countdownInterval);
       updateTimerUI({ days: 0, hours: 0, minutes: 0, seconds: 0 });
@@ -77,8 +85,9 @@ const options = {
 
 flatpickr("#datetime-picker", options);
 
-document.querySelector('[data-start]').addEventListener('click', () => {
+document.querySelector('#startButton').addEventListener('click', () => {
   if (userSelectedDate) {
     startCountdown(userSelectedDate);
+          document.querySelector('#datetime-picker').disabled = true;
   }
 });
