@@ -3,7 +3,8 @@ import successIcon from '../img/bi_check2-circle.png'
 import errorIcon from '../img/bi_x-octagon.png'
 
 document.querySelector('.form').addEventListener('submit', function (event) {
-event.preventDefault();
+    event.preventDefault();
+  
 
 const delay = parseInt(document.querySelector('input[name="delay"]').value, 10);
 const state = document.querySelector('input[name="state"]:checked').value;
@@ -12,10 +13,13 @@ const promise = new Promise((resolve, reject) => {
 setTimeout(() => {
     if (state === 'fulfilled') {
         resolve(delay);
+
     } else {
         reject(delay);
+
     }
-    }, delay);
+}, delay);
+    document.querySelector('.form').reset();
 });
 
 promise.then(

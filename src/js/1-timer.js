@@ -88,5 +88,6 @@ document.querySelector('#startButton').addEventListener('click', () => {
   if (userSelectedDate) {
     startCountdown(userSelectedDate);
           document.querySelector('#datetime-picker').disabled = true;
+          
   }
 });
